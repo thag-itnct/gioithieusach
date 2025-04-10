@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turn The Page, One Book A Day</title>
+    <link rel="stylesheet" href="gioithieusach.css">
+	<link rel="stylesheet" href="hoaroi.css">
+	<style>
+		.id{
+			font-weight: bold;
+		}
+		th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #d8f8e3;
+			font-size: medium;
+        }
+	</style>
+     <script>
+        function showStory(storyId) {
+            const storyIds = [
+                'story-tamcam', 
+                'story-giong', 
+                'story-caykhe', 
+                'story-bikip', 
+                'story-haivan', 
+                'story-losatsinh',
+                'story-goth', // Thêm câu chuyện kinh dị
+                'story-bachdahanh', // Thêm câu chuyện kinh dị
+                'story-kyananhtrang', // Thêm câu chuyện kinh dị
+                'story-phodai', // Thêm câu chuyện ngôn tình
+                'story-tangha', // Thêm câu chuyện ngôn tình
+                'story-tungco', // Thêm câu chuyện ngôn tình
+				'story-dacnhantam',
+				'story-ditimlesong',
+				'story-toigioibancungthe',
+				'story-tuduynhanhhaycham',
+				'story-tuanlamviec4gio',
+				'story-tamnhinthaydoiquocgia',
+                'default-content'
+            ];
+
+            // Ẩn tất cả các câu chuyện và nội dung mặc định
+            storyIds.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            // Nếu nhấn vào "Thiếu Nhi", hiển thị tất cả các câu chuyện
+            if (storyId === 'thieu-nhi') {
+                document.getElementById('story-tamcam').style.display = 'flex';
+                document.getElementById('story-giong').style.display = 'flex';
+                document.getElementById('story-caykhe').style.display = 'flex';
+            } 
+            // Nếu nhấn vào "Khoa Học Viễn Tưởng", hiển thị tất cả các câu chuyện trong thể loại này
+            else if (storyId === 'khoa-hoc-vien-tuong') {
+                document.getElementById('story-bikip').style.display = 'flex';
+                document.getElementById('story-haivan').style.display = 'flex';
+                document.getElementById('story-losatsinh').style.display = 'flex';
+            } 
+            // Nếu nhấn vào "Kinh Dị", hiển thị tất cả các câu chuyện trong thể loại này
+            else if (storyId === 'kinh-di') {
+                document.getElementById('story-goth').style.display = 'flex';
+                document.getElementById('story-bachdahanh').style.display = 'flex';
+                document.getElementById('story-kyananhtrang').style.display = 'flex';
+            }
+            // Nếu nhấn vào "Ngôn Tình", hiển thị tất cả các câu chuyện trong thể loại này
+            else if (storyId === 'ngon-tinh') {
+                document.getElementById('story-phodai').style.display = 'flex';
+                document.getElementById('story-tangha').style.display = 'flex';
+                document.getElementById('story-tungco').style.display = 'flex';
+            }
+			else if (storyId === 'self-help') {
+                document.getElementById('story-dacnhantam').style.display = 'flex';
+                document.getElementById('story-ditimlesong').style.display = 'flex';
+                document.getElementById('story-toigioibancungthe').style.display = 'flex';
+            }
+			else if (storyId === 'kinh-te') {
+                document.getElementById('story-tuduynhanhhaycham').style.display = 'flex';
+                document.getElementById('story-tuanlamviec4gio').style.display = 'flex';
+                document.getElementById('story-tamnhinthaydoiquocgia').style.display = 'flex';
+            }
+            // Hiện câu chuyện được chọn
+            else {
+                document.getElementById(storyId).style.display = 'flex'; 
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="back-to-top" id="backToTop">
+    <a href="#" title="Trở về đầu trang" onclick="scrollToTop(event)">
+        <img src="muiten.png" alt="" class="arrow-icon">
+    </a>
+</div>
+
+<div class="flower-container"></div>
+    
+    <script src="script.js"></script>
+
+    <div class="navbar">
+		<div class="dropdown">
+			<a href="gioithieusach.html">
+			<img src="trangchu1.png" alt="" style="width: 40px; height: 40px; vertical-align: middle;">
+			</a>
+		</div>
+
+        <div class="dropdown">
+            <a href="#thieu-nhi" onclick="showStory('thieu-nhi')">Thiếu Nhi</a>
+            <div class="dropdown-content">
+                <a href="#tamcam" onclick="showStory('story-tamcam')">Tấm Cám</a>
+                <a href="#thanhgiong" onclick="showStory('story-giong')">Thánh Gióng</a>
+                <a href="#caykhe" onclick="showStory('story-caykhe')">Cây Khế</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#khoa-hoc-vien-tuong" onclick="showStory('khoa-hoc-vien-tuong')">Khoa Học Viễn Tưởng</a>
+            <div class="dropdown-content">
+                <a href="#bikipquagiangvaonganha" onclick="showStory('story-bikip')">Bí Kíp Quá Giang Vào Ngân Hà</a>
+                <a href="#hanvandamduoibien" onclick="showStory('story-haivan')">Hai Vạn Dặm Dưới Biển</a>
+                <a href="#losatsinhso5" onclick="showStory('story-losatsinh')">Lò Sát Sinh Số 5</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#kinh-di" onclick="showStory('kinh-di')">Kinh Dị</a>
+            <div class="dropdown-content">
+                <a href="#GOTHnhungkehacam" onclick="showStory('story-goth')">GOTH – Những Kẻ Hắc Ám</a>
+                <a href="#bachdahanh" onclick="showStory('story-bachdahanh')">Bạch Dạ Hành</a>
+                <a href="#kyananhtrang" onclick="showStory('story-kyananhtrang')">Kỳ Ánh Trăng</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#ngon-tinh" onclick="showStory('ngon-tinh')">Ngôn Tình</a>
+            <div class="dropdown-content">
+                <a href="#phodai" onclick="showStory('story-phodai')">Phố Dài</a>
+                <a href="#tangha" onclick="showStory('story-tangha')">Tàng Hạ</a>
+                <a href="#tungconguoiyeutoinhusinhmenh" onclick="showStory('story-tungco')">Từng Có Người Yêu Tôi Như Sinh Mệnh</a>
+            </div>
+        </div>
+		<div class="dropdown">
+            <a href="#self-help" onclick="showStory('self-help')">SELF-HELP</a>
+            <div class="dropdown-content">
+                <a href="#dacnhantam" onclick="showStory('story-dacnhantam')">Đắc Nhân Tâm</a>
+                <a href="#ditimlesong" onclick="showStory('story-ditimlesong')">Đi Tìm Lẽ Sống</a>
+                <a href="#toitaigioibancungthe" onclick="showStory('story-toigioibancungthe')">Tôi Tài Giỏi Bạn Cũng Thế</a>
+            </div>
+        </div>
+		<div class="dropdown">
+            <a href="#kinh-te" onclick="showStory('kinh-te')">Kinh Tế</a>
+            <div class="dropdown-content">
+                <a href="#tuduynhanhhaycham" onclick="showStory('story-tuduynhanhhaycham')">Tư Duy Nhanh Hay Chậm</a>
+                <a href="#tuanlamviec4gio" onclick="showStory('story-tuanlamviec4gio')">Tuần Làm Việc 4 Giờ</a>
+                <a href="#tamnhinthaydoiquocgia" onclick="showStory('story-tamnhinthaydoiquocgia')">Tầm Nhìn Thay Đổi Quốc Gia</a>
+            </div>
+        </div>
+	
+        <div class="dropdown">
+			<a href="banggioithieu.html" >Xem Thêm</a>
+		</div>	
+		<div class="dropdown">
+			<a href="login.html">Đăng Nhập</a>
+		</div>
+		<div class="dropdown">
+			<a href="register.html">Đăng Ký</a>
+		</div>
+    </div>
+
+    <img src="banner2.jpg" alt="Banner" class="banner">
+
+    <div id="default-content" class="story-content">
+        <h2>Chào Mừng Đến Với Thế Giới Câu Chuyện!</h2>
+        <p>Hãy chọn một thể loại để bắt đầu khám phá những câu chuyện thú vị!</p>
+    </div>
+
+    
+<div id="story-tamcam" class="story-content">
+    <img src="tamcam.jpg" alt="Tấm Cám" class="story-image">
+    <div class="story-details">
+        <div class="story-title">Tấm Cám</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin truyện</th>
+			</tr>
+			<tr>
+				<td>Tên truyện</td>
+				<td><span class="id">Tấm Cám</span></td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Truyện cổ tích</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Việt Nam</td>
+			</tr>
+			<tr>
+				<td>Nhân vật chính</td>
+				<td>Tấm, Cám, Dì ghẻ, Bụt</td>
+			</tr>
+			<tr>
+				<td>Bài học</td>
+				<td>Lòng nhân hậu, ở hiền gặp lành</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p class="story-description">Truyện kể về hai nhân vật chính là cô Tấm và Cám. Tấm hiền lành, chăm chỉ, tốt bụng. Cám thì lười biếng, được cưng chiều. Vì bố mất sớm nên Tấm phải ở cùng
+		với người dì ghẻ và người em cùng cha khác mẹ là Cám. Tấm luôn bị mẹ con Cám đối xử bất công và cực nhọc. Một lần Tấm và Cám đi bắt tép, ai bắt được nhiều tép hơn sẽ được thưởng. Cám lừa 
+		Tấm lên bờ rồi chút hết tép trong giỏ của Tấm vào giỏ mình. Trong giỏ của Tấm chỉ còn lại một con cá bống. Tấm khóc nức nở và được Bụt hiện lên giúp đỡ. Nhờ sự giúp đỡ của Bụt, Tấm có người
+		bạn để tâm sự là cá bống, có quần áo mặc đi chơi hội, được bầy chim sẽ giúp đỡ. Đến ngày hội làng, khi đi xem hội Tấm lỡ đánh rơi một chiếc giày và được nhà vua nhặt được. Vua truyền lệnh: 
+		hễ ai ướm giày vừa chân thì vua sẽ lấy làm hoàng hậu. Tấm đi vừa chiếc giày và trở thành hoàng hậu. Thấy vậy, mẹ con Cám ghen tị. Một lần Tấm về giỗ cha, nàng trèo lên hái cau thì mẹ con Cám 
+		chặt cây cau và hại chết Tấm. Sau lần ấy, Cám vào cung tiến cung. Tấm nhiều lần hóa thân biến thành con chim vàng anh, cây xoan đào, khung cửi, và cuối cùng là trong quả thị để trở thành con gái 
+		của bà cụ. Nhờ miếng trầu têm mà vua nhận ra Tấm. Nàng trở lại làm hoàng hậu. Mẹ con Cám chết.</p>
+		<a href="https://shopee.vn/S%C3%A1ch-Kho-t%C3%A0ng-truy%E1%BB%87n-c%E1%BB%95-t%C3%ADch-Vi%E1%BB%87t-Nam-T%E1%BA%A5m-C%C3%A1m-i.201425457.9722504764?sp_atk=c171435d-e3eb-465b-b1ff-7c88c21026b0&xptdk=c171435d-e3eb-465b-b1ff-7c88c21026b0">
+		MUA NGAY GIẢM 10%</a>
+		<h3>Video: Truyện Tấm Cám</h3>
+        <p><video width="320" height="240" controls>
+            <source src="tamcamvd.mp4" type="video/mp4">
+        </video></p>
+		</div>
+</div>
+
+    <div id="story-giong" class="story-content">
+        <img src="thanhgiong.jpg" alt="Thánh Gióng" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Thánh Gióng</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin truyện</th>
+			</tr>
+			<tr>
+				<td>Tên truyện</td>
+				<td><span class="id">Thánh Gióng</span></td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Truyền thuyết</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Việt Nam</td>
+			</tr>
+			<tr>
+				<td>Nhân vật chính</td>
+				<td>Thánh Gióng</td>
+			</tr>
+			<tr>
+				<td>Bối cảnh</td>
+				<td>Thời vua Hùng, khi đất nước bị giặc ngoại xâm</td>
+			</tr>
+			<tr>
+				<td>Bài học</td>
+				<td>Lòng yêu nước, sức mạnh đoàn kết chống giặc</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Vào thời Hùng Vương thứ sáu, ở làng Gióng có vợ chồng rất chăm chỉ làm ăn lại hiền lành, tốt bụng. Một hôm, người vợ ra đồng thì thấy một vết chân rất to liền ướm thử. Không ngờ về nhà bà 
+		thụ thai, rồi sau mười hai tháng thai nghén, bà sinh ra một em bé. Hai vợ chồng mừng lắm. Nhưng kì lạ là đứa trẻ lên ba tuổi vẫn chưa biết nói biết cười. Thuở ấy, giặc Ân đến xâm lược nước ta. 
+		Thế giặc mạnh khiến nhà vua vô cùng lo lắng. Vua Hùng cử sứ giả đi khắp nơi để tìm người tài. Đến làng Gióng, khi nghe thấy tiếng sứ giả, cậu bé bỗng cất tiếng nói: “Mẹ ra mời sứ giả vào đây”.
+		Sứ giả vào, cậu liền bảo với sứ giả về tâu với vua sắm cho một con ngựa sắt, một cái roi sắt và một tấm áo giáp sắt sẽ đánh tan lũ giặc này. Sau hôm đó, cậu bé lớn nhanh như thổi, cơm ăn mấy cũng 
+		không no, áo mặc mấy cũng không vừa. Hai vợ chồng làm ra bao nhiêu cũng không đủ, phải nhờ dân làng giúp sức. Bà con vui lòng góp gạo thóc để nuôi chú bé, ai cũng mong chú giết giặc cứu nước. Giặc 
+		đến chân núi Trâu, vừa lúc sứ giả mang ngựa sắt, roi sắt và áo giáp sắt đến. Cậu bé vươn vai biến thành tráng sĩ đánh giặc. Giặc chết như ngả rạ. Bỗng roi sắt gãy, tráng sĩ liền nhổ bụi tre cạnh đường
+		quật vào giặc. Giặc tan vỡ, đám tàn quân giẫm đạp lên nhau mà trốn thoát. Sau đó, tráng sĩ một mình cưỡi ngựa lên đỉnh núi, cởi bỏ áo giáp rồi bay về trời. Vua cho lập đền thờ để tưởng nhớ công ơn, phong làm
+		Phù Đổng Thiên Vương. Tại quê nhà vẫn còn những dấu tích cũ.</p>
+		<a href="https://shopee.vn/S%C3%A1ch-Kho-T%C3%A0ng-Truy%E1%BB%87n-C%E1%BB%95-T%C3%ADch-Vi%E1%BB%87t-Nam-Th%C3%A1nh-Gi%C3%B3ng-i.49041319.22530872783?sp_atk=a93368ee-141a-4727-8c16-62d7b9fc12a5&xptdk=a93368ee-141a-4727-8c16-62d7b9fc12a5">
+		MUA NGAY GIẢM 10%</a>
+		<h3>Video: Truyện Thánh Gióng</h3>
+        <p><video width="320" height="240" controls>
+            <source src="thanhgiongvd.mp4" type="video/mp4">
+        </video></p>
+		</div>
+	</div>
+
+    <div id="story-caykhe" class="story-content">
+        <img src="caykhe.jpg" alt="Cây Khế" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Cây Khế</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin truyện</th>
+			</tr>
+			<tr>
+				<td>Tên truyện</td>
+				<td><span class="id">Cây Khế</span></td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Truyện cổ tích</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Việt Nam</td>
+			</tr>
+			<tr>
+				<td>Nhân vật chính</td>
+				<td>Người anh, người em, cây khế</td>
+			</tr>
+			<tr>
+				<td>Bài học</td>
+				<td>Sự công bằng, lòng tham và hậu quả của nó</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Ở một làng nọ có hai anh em, người anh thì vô cùng tham lam, người em thì hiền lành chịu khó. Sau khi ba mẹ qua đời người anh lấy vợ ra ở riêng và cố gắng vơ vét hết tài sản chỉ để lại cho người
+		em một cây khế ở góc vườn. Người em bị người anh chèn ép như vậy nhưng không hề nói một lời phàn nàn nào, anh đã dựng túp liều gần cây khế, hàng ngày anh chăm bón cây khế và đi làm thuê để kiếm tiền 
+		nuôi thân. Cây khế càng ngày càng lớn dần, năm ấy bỗng sai trĩu quả, người em mừng vô cùng. Mấy hôm sau, bỗng dưng có một con chim lạ bay tới cây khế và ăn khế của người em, người em thấy vậy buồn lòng 
+		than thở với chim. Chim lạ mới nói lại rằng: “Ăn một quả trả cục vàng may túi ba gang mang đi mà đựng”. Hôm sau như lời hứa chim đến đón người em tới một hòn đảo có rất nhiều vàng bạc, châu báu. Người 
+		em xuống lấy vàng và chỉ lấy vừa đầy túi ba gang rồi lên lưng chim trở về. Người em về nhà dùng số vàng bạc lấy được mang đi đổi lấy lúa thóc để giúp đỡ cho người dân ở trong làng. Thấy người em bỗng có 
+		nhiều vàng bạc nên người anh đã âm mưu sang đòi đổi nhà lấy cây khế, lại lần nữa người em đồng ý đổi với người anh mà không một lời phàn nàn. Cây khế lại sai quả, chim lạ lại đến ăn người anh cũng cố ý 
+		than thở với chim. Mấy hôm sau chim đến đón người anh đi đến hòn đảo vàng bạc, vốn bản tính tham lam nên người anh đã lấy rất là nhiều bỏ vào túi sáu gang mang theo. Trên đường về vì vàng bạc quá nhiều,
+		chim bảo người anh vứt bớt nhưng người anh không chịu, chim đã quá mỏi cánh nên đã nghiêng cánh hất người anh tham lam cùng vàng bạc xuống biển. Thế là người anh tham lam ấy không còn trở về được nữa.</p>
+		<a href="https://shopee.vn/S%C3%A1ch-C%C3%A2y-Kh%E1%BA%BF-Truy%E1%BB%87n-C%E1%BB%95-T%C3%ADch-Vi%E1%BB%87t-Nam-i.142856269.4236453525?sp_atk=a20b547e-679a-4d53-9a96-43bf91b64998&xptdk=a20b547e-679a-4d53-9a96-43bf91b64998">
+		MUA NGAY GIẢM 10%</a>
+		<h3>Video: Truyện Cây Khế</h3>
+        <p><video width="320" height="240" controls>
+            <source src="caykhevd.mp4" type="video/mp4">
+        </video></p>
+		</div>
+	</div>
+    <div id="story-bikip" class="story-content">
+        <img src="bikip.jpg" alt="Bí Kíp Quá Giang Vào Ngân Hà" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Bí Kíp Quá Giang Vào Ngân Hà</div>
+		
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td><span>Douglas Adams</span></td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Vương quốc Anh</td>
+			</tr>
+			<tr>
+				<td>Ngôn ngữ</td>
+				<td>Tiếng Anh</td>
+			</tr>
+			<tr>
+				<td>Bộ sách</td>
+				<td><span>Bí kíp quá giang vào Ngân Hà</span></td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Khoa học viễn tưởng hài</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Pan Books</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>
+					12 tháng 10 năm 1979 (Anh)<br>
+					tháng 10 năm 1980 (Hoa Kỳ)
+				</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Bí Kíp Quá Giang Vào Ngân Hà là tất cả những điều cần biết nếu bạn nghèo kiết xác mà lại khao khát chiêm ngưỡng các kỳ quan của vũ trụ, chỉ với chưa đầy ba mươi đô la Ngưu Lang một ngày.
+			Với bí kíp trong tay, một nhóm người ngoài hành tinh kỳ quặc bên cạnh, và một Trái Đất nổ tung sau lưng, Arthur đột nhiên trở thành kẻ lữ hành lạc trôi trong Vũ Trụ. Không, câu chuyện sẽ không mộng mơ hay nghiêm túc như bạn tưởng, mà quay cuồng giữa những trò khôi hài, ngẫu hứng, điên rồ. Một truyện khoa học viễn tưởng cực kỳ hài hước.
+			</p>
+		<a href="https://shopee.vn/S%C3%A1ch-Series-B%C3%AD-k%C3%ADp-qu%C3%A1-giang-v%C3%A0o-ng%C3%A2n-h%C3%A0-(Douglas-Adams)-(Nh%C3%A3-Nam-HCM)-i.404602141.23838644563?sp_atk=1cfa451e-c55d-4158-a0bd-658bb2e36249&xptdk=1cfa451e-c55d-4158-a0bd-658bb2e36249">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-haivan" class="story-content">
+        <img src="haivan.jpg" alt="Hai Vạn Dạm Dưới Biển" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Hai Vạn Dặm Dưới Biển</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Jules Verne</td>
+			</tr>
+			<tr>
+				<td>Minh họa</td>
+				<td>Alphonse de Neuville và Édouard Riou</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Pháp</td>
+			</tr>
+			<tr>
+				<td>Ngôn ngữ</td>
+				<td>Tiếng Pháp</td>
+			</tr>
+			<tr>
+				<td>Bộ sách</td>
+				<td>Những chuyến du hành kỳ thú #6</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Khoa học viễn tưởng, Tiểu thuyết phiêu lưu</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Pierre-Jules Hetzel</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>1870</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Giáo sư Aronnax cùng anh bạn giúp việc vui tính Conseil là những người say mê khám phá sinh vật biển. Họ đã quyết định khám phá bí mật của quái vật biển. Được sự giúp đỡ của anh chàng thợ săn cá voi
+		siêu hạng Ned Land, họ đã sẵn sàng một cuộc đi săn mà không biết có bao điều nguy hiểm đang chờ đợi mình ở phía trước. Bất ngờ đến với họ khi phát hiện ra con cá voi khổng lồ làm bằng sắt, nhưng tất cả đều 
+		không kịp, họ bị bắt làm tù binh trên chiếc tàu của thuyền trưởng Nemo. Và bất đắc dĩ, họ phải tham ra chuyến hành trình trên biển dài ngày. Một thế giới kỳ thú của đại dương đã hiện ra cùng cuộc phiêu lưu
+		của đoàn thám hiểm và thuyền trưởng Nemo: Tham gia chuyến đi săn dưới đáy biển, thoát khỏi cá mập nguy hiểm, chạy trốn những người thổ dân, khai thác kim cương dưới đáy biển, khám phá nhiều vùng đất mới và
+		cuối cùng là mắc kẹt trong núi băng ở Bắc Cực…</p>
+		<a href="https://www.fahasa.com/hai-van-dam-duoi-day-bien-tai-ban-2022.html?fhs_campaign=SEARCH">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-losatsinh" class="story-content">
+        <img src="losatsinh.jpg" alt="Lò Sát Sinh Số 5" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Lò Sát Sinh Số 5</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Kurt Vonnegut</td>
+			</tr>
+			<tr>
+				<td>Dịch giả</td>
+				<td>Quân Khê</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Hội nhà văn</td>
+			</tr>
+			<tr>
+				<td>Nhà phát hành</td>
+				<td>Nhà Nam</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>270</td>
+			</tr>
+			<tr>
+				<td>Phát hành</td>
+				<td>2019</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>"Lò sát sinh số 5" hay "The Children's Crusade: A Duty-Dance with Death" là một trong những tác phẩm nổi tiếng nhất của Kurt Vonnegut và là một hiện tượng văn học kết hợp giữa hồi ức chiến tranh,
+		satire xã hội và viễn tưởng. Tác phẩm này dựa trên kinh nghiệm thực tế của Vonnegut khi ông làm tù binh trong Thế chiến II và sống sót sau vụ ném bom Dresden. Câu chuyện theo dõi hành trình của Billy 
+		Pilgrim, một lính Mỹ bị bắt làm tù binh, người sau đó được cho là có khả năng du hành thời gian và thậm chí bị bắt cóc bởi người ngoài hành tinh. Nhân vật chính nhìn lại các sự kiện trong cuộc đời mình
+		theo cách không tuân theo thời gian tuyến tính, phản ánh cảm giác rối loạn và mất phương hướng sau chiến tranh. Vonnegut sử dụng ngôn ngữ đơn giản nhưng sâu sắc, và câu nói "Tất cả những điều này ít nhiều 
+		đã xảy ra" nhấn mạnh sự pha trộn giữa sự thật và hư cấu. Cuốn sách không chỉ là một cuộc bàn luận về chiến tranh và bạo lực nhưng còn là một lời kêu gọi về nhân văn và khát vọng hướng tới một thế giới bình
+		yên.</p>
+		<a href="https://www.fahasa.com/lo-sat-sinh-so-5.html?srsltid=AfmBOoo34i7GVy_2aKjhjQgetxwCTFANHjs73fI1n8lAvl372WbAji-C">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-goth" class="story-content">
+     	<img src="goth.jpg" alt="GOTH – Những Kẻ Hắc Ám" class="story-image">
+        <div class="story-details">
+		<div class="story-title">GOTH – Những Kẻ Hắc Ám</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Otsui Chi - H.M</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Kinh Dị</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>NXB Hà Nội</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản</td>
+				<td>2017</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>355</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Một cuốn sổ ghi chép quá trình giết người.Chiếc tủ lạnh chứa đầy bàn tay. Lũ chó bị bắt cóc.Vụ treo cổ kỳ quái.Đứa trẻ bị chôn sống. Cuốn băng thu âm giọng nói của người chết…
+Hai học sinh cấp ba cùng nhau điều tra những vụ án kỳ lạ ở địa phương. Nhưng thay vì cố gắng ngăn chặn tội ác, nỗi ám ảnh với cái chết và sự giết chóc đã dẫn dắt chúng tiến vào bóng tối điên cuồng, nơi những cơn ác mộng trở thành sự thực.
+Không chỉ là một cuốn tiểu thuyết kinh dị rùng rợn, GOTH còn ẩn chứa nỗi buồn và những chiêm nghiệm về cuộc sống, về bản chất con người và sự giác ngộ. Tác phẩm đã mang về cho Otsuichi giải thưởng Honkaku Mystery, được chuyển thể thành manga và phim điện ảnh.
+</p>
+		<a href="https://www.fahasa.com/goth-nhung-ke-hac-am-tai-ban-2024.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-bachdahanh" class="story-content">
+        <img src="bachdahanh.jpg" alt="Bạch Dạ Hành" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Bạch Dạ Hành</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Keigo Higashino</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Nhật Bản</td>
+			</tr>
+			<tr>
+				<td>Ngôn ngữ</td>
+				<td>Tiếng Nhật</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Trinh thám</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Shueisha</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>Tháng 8 năm 1999</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Kosuke, chủ một tiệm cầm đồ bị sát hại tại một ngôi nhà chưa hoàn công, một triệu yên mang theo người cũng bị cướp mất.
+Sau đó một tháng, nghi can Fumiyo được cho rằng có quan hệ tình ái với nạn nhân và đã sát hại ông để cướp một triệu yên, cũng chết tại nhà riêng vì ngộ độc khí ga. Vụ án mạng ông chủ tiệm cầm đồ rơi vào bế tắc và bị bỏ xó.
+Nhưng với hai đứa trẻ mười một tuổi, con trai nạn nhân và con gái nghi can, vụ án mạng năm ấy chưa bao giờ kết thúc. Sinh tồn và trưởng thành dưới bóng đen cái chết của bố mẹ, cho đến cuối đời, Ryoji vẫn luôn khao khát được một lần đi dưới ánh mặt trời, còn Yukiho cứ ra sức vẫy vùng rồi mãi mãi chìm vào đêm trắng.</p>
+		<a href="https://www.fahasa.com/bach-da-hanh-tai-ban-2021.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-kyananhtrang" class="story-content">
+        <img src="kyananhtrang.jpg" alt="Kỳ Hạn Ánh Trăng" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Kỳ Hạn Ảnh Trăng</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Quỷ Cổ Nữ, Trần Hữu Nùng</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Kinh dị</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Văn Học</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản</td>
+				<td>08/2015</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>528</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Đêm 16 tháng Sáu
+Luôn có người nhảy lầu… Đã mười sáu năm rồi, cứ vào nửa đêm 16 tháng Sáu là có người tới số, mụ mẫm trèo lên bậu cửa phòng 405, lao đầu xuống sân và chết.
+Dù được di tản ra ngoài để tránh nạn thì vào thời khắc định mệnh đó, người tới số vẫn mò về, trèo lên bậu cửa phòng 405, lao đầu xuống sân và chết.
+Dù được canh gác ngăn chặn thì vào thời khắc định mệnh đó, người tới số vẫn tìm cách lọt vào, trèo lên bậu cửa phòng 405, lao đầu xuống sân và chết.
+Người tới số năm nay là Diệp Hinh. Không cam chịu lời nguyền trái ngang này, cô tìm gặp người duy nhất thoát nạn trong mười sáu năm qua để học hỏi kinh nghiệm, người ta liền trèo lên bậu cửa sổ ngay trước mắt cô, lao đầu xuống sân và chết.Đến lúc Diệp Hinh bế tắc buông tay, đã sẵn sàng cho việc trèo lên bậu cửa, thì một người khác lại tranh suất của cô, chuẩn bị lao đầu xuống sân để chết…
+Nền sân, bậu cửa, và phòng 405… vì lẽ gì lại hút khách viếng thăm địa ngục tới vậy?
+Bi kịch sinh ra từ “Ánh Trăng”.
+</p>
+		<a href="https://www.fahasa.com/ky-an-anh-trang-phien-ban-moi.html?srsltid=AfmBOorxyKaWrUbomTare1zb-v7ovrsJF1ZhbrBtgEvLMaDF8-GK-aQq">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-phodai" class="story-content">
+        <img src="phodai.jpg" alt="Phố Dài" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Phố Dài</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Thù Vỉ</td>
+			</tr>
+			<tr>
+				<td>Người dịch</td>
+				<td>Giang Hạ</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>NXB Văn Học</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Ngôn Tình</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>Tháng 1 Năm 2024</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>536</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p><strong>Hướng Dụ</strong> là một cô gái thông minh, kiên định, mạnh mẽ. Cô không phải là một người có dã tâm hay hoài bão lớn lao gì, ước mơ của cô chỉ là một cuộc sống bình dị, đơn giản. Trong cuộc sống yên bình ấy, cô đã gặp một người, người đó khiến cô chìm đắm vào những giây phút tươi đẹp nhưng đồng thời cũng khiến cô đôi lúc bối rối, mơ hồ. Bởi, anh ấy tựa như đám mây, lúc nào cũng lơ lửng, khó nắm bắt.
+		Cận Phù Bạch sống ở một thế giới khác xa so với thế giới của Hướng Dụ. Anh giống như “con phố dài”, sâu hút tĩnh mịch. Cận Phù Bạch có vẻ ngoài vô cùng cuốn hút với một đôi mắt trìu mến luôn khiến người ta vô cùng tin tưởng. Anh trưởng thành và là một người đã trải qua nhiều biến cố và khó khăn trong cuộc đời.
+Có lẽ ban đầu, Hướng Dụ với anh chỉ là sự hứng thú nhất thời, nhưng càng về sau từ những hành động dịu dàng, những câu tán tỉnh, những lần ghen tuông thì chắc chắn Hướng Dụ đã trở thành một cô gái đặc biệt trong trái tim anh. Hướng Dụ cũng vậy, cô đến với anh cũng vì lẽ đó, nhưng khi đã nhận ra tình cảm của mình, dù biết khó khăn, 
+cô vẫn quyết lao vào lửa. Bởi lẽ có những thứ tình cảm không thể buông bỏ được vì những kí ức lúc còn mặn nồng sẽ luôn hiện hữu trong trái tim ta.
+“Con người khao khát tình yêu nhưng lại luôn bị ràng buộc bởi những quy tắc cứng nhắc và sự hèn nhát, chi bằng buông bỏ một lần yêu hết mình.”
+Cận Phù Bạch và Hướng Dụ đã buông bỏ tất cả để đến với nhau. Cả hai luôn thấu hiểu và bao dung cho nhau. Tình cảm của họ rất đẹp nhưng cũng có cả vị ngọt lẫn vị đắng. Cận Phù Bạch là người vô cùng dịu dàng, anh luôn khiến Hướng Dụ cảm nhận được 
+tình cảm sâu đậm qua từng hành động của mình. Anh cũng luôn kiên nhẫn, chiều chuộng Hướng Dụ. Một người gần như lúc nào cũng bình thản như anh lại có lúc hốt hoảng, lo lắng mất đi người con gái ấy. Hướng Dụ cũng vậy, 
+tình cảm cô dành cho anh thật kiên định, vững vàng. Trong mối quan hệ này cô luôn lo sợ mất đi anh, nhưng cũng là người dứt khoát, dám nói lời chia ly chỉ để anh không phải sống một cuộc đời vất vả. Tình cảm của họ rất đơn thuần. Những người như Cận Phù Bạch, luôn sống trong thế giới mà con người ta chỉ vì lợi ích,
+ ở đó thiếu hụt nhất là tình cảm, vậy mà, hai con người, trong sự tăm tối như thế mà vẫn đến với nhau bằng cả trái tim chân thành.Họ đã có khoảng thời gian xa cách, chia ly, vẫy tay từ biệt nhưng vẫn quay trở về bên nhau. Ai cũng khổ sở, ai cũng đau đớn trong mối tình này. Nhưng cả hai luôn vì nhau mà kiên trì, cố gắng để có một kết quả tốt đẹp. Nên dù thời gian chảy trôi, kỉ niệm bên nhau sẽ không bị 
+ xoá nhoà và trái tim họ vẫn mãi mãi không tách rời.</p>
+		<a href="https://www.fahasa.com/pho-dai-tang-kem-bookmark-boi-cung.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-tangha" class="story-content">
+        <img src="tangha.jpg" alt="Tàng Hạ" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Tàng Hạ</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Ngải Ngư</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Ngôn Tình</td>
+			</tr>
+			<tr>
+				<td>Số chương</td>
+				<td>60</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p><strong>Lạc Hạ</strong> là nam chính, tên Lạc trong Lạc Đà, Hạ trong mùa Hạ. Anh có đầy đủ phẩm chất của “con nhà người ta”: đẹp trai, thông minh, học giỏi,
+		ngoan ngoãn, nhà giàu có. Anh không lạnh lùng, mà thân thiện, dịu dàng, chu đáo và tinh tế. Sự chu đáo của anh thể hiện qua nhiều chi tiết trong 
+		quá trình trưởng thành, không phải kiểu trước dịu dàng sau thay đổi. Khi đi học, anh là con cưng của thầy cô, luôn đạt thành tích xuất sắc, ngoan
+		ngoãn và lễ phép. Anh không yêu sớm nên không nhận ra tình cảm của nữ chính từ sớm. Khi lớn lên, anh thành công trong sự nghiệp, dám yêu và bày tỏ tình cảm
+		rõ ràng. Anh luôn tôn trọng, vun vén tình cảm hai người. Tình yêu của anh dành cho cô ngày càng sâu đậm, không hề giảm bớt. Mặc dù bằng tuổi với Hướng Noãn, Lạc Hạ 
+		vẫn khiến cô trông như trẻ con. Anh không ghen tuông hay giận hờn vô cớ như nhiều nam chính khác. Cả truyện không có chi tiết cãi nhau vì ghen tuông, chỉ có yêu thương
+		ngọt ngào. Cách họ yêu thương nhau khiến người đọc ghen tị.</p>
+		<p>Ba phân đoạn thể hiện rõ tình cảm của Lạc Hạ với Noãn Noãn: <strong>Một</strong>, anh phát hiện bí mật sau 1000 con hạc giấy và viết lời hồi đáp. <strong>Hai</strong>, anh chăm sóc
+		Noãn Noãn khi mang thai, nhẹ nhàng hôn lên bụng cô và thủ thỉ với con. Khi Hướng Noãn tỉnh giấc, không thấy Lạc Hạ bên cạnh, rồi thấy anh tiến đến gần. Cô chưa kịp hỏi, 
+		đã thấy anh hôn nhẹ nhàng lên bụng mình. Nụ hôn ấy qua lớp quần áo mỏng, dịu dàng và ấm áp. Cô nghe anh nói với đứa bé trong bụng rằng nhóc à, cha xin con đấy, đừng làm mẹ khó côu nữa.
+		Thật sự tình tiết này La thấy siêu dễ thương luôn á!!! <strong>Ba</strong>, anh và hai con cùng nói lời yêu thương với Hướng Noãn trong sinh nhật rất cảm động. Tóm lại, Lạc Hạ là bạn trai, chồng và người
+		cha lý tưởng và hoàn hảo.</p>
+		<p><strong>Hướng Noãn</strong> là nữ chính, tên Hướng trong phương hướng, Noãn trong ấm áp. Dù Hướng Noãn và Lạc Hạ chung trường, học chung lớp, mối quan hệ vẫn không mấy thân thiết. Hướng Noãn khi đó ngoan
+		hiền, trầm lặng, chỉ tập trung vào việc học. Cô không quá nổi bật hay gây chú ý. Còn Lạc Hạ như ánh mặt trời mùa hè, đẹp trai, nhà giàu, học giỏi, vui vẻ và hòa đồng. Anh được nhiều cô gái thầm 
+		thương trộm nhớ, và Hướng Noãn cũng là một trong số đó. Thời đi học, cô xinh đẹp, nhút nhát, tốt bụng, chăm chỉ học tập. Cô muốn trở thành cô gái ưu tú để xứng đáng đứng trước Lạc Hạ. Cô biết
+		thích một người từ tuổi thiếu niên, nhưng tình cảm ấy thầm lặng và đơn phương. Điều La thích nhất ở cô là cách yêu thầm của cô, ngây ngô, ngượng ngùng, đúng với tâm lý con gái mới lớn. Cô không
+		tự tin bày tỏ tình cảm, chỉ yêu thầm nhẹ nhàng, nhút nhát, ngay cả nói chuyện với anh cũng khó khăn. Một số bạn có thể không thích kiểu nữ chính như cô, nhưng mình rất thích và ngưỡng mộ. Khi 
+		trưởng thành, Hướng Noãn đã thay đổi ngoạn mục. Từ cô gái nhút nhát, cô trở thành kiến trúc sư giỏi, xinh đẹp, tự tin, được ngưỡng mộ. Cô biết nói đùa, cười nhiều hơn, đủ dũng khí đứng trước Lạc Hạ.
+		Cô trò chuyện, ăn cơm, chụp ảnh, và yêu anh một cách tự tin. Cuối cùng, tình yêu đơn phương của cô không vô vọng. Tình cảm của họ được đơm hoa kết trái, ngày càng đậm sâu. La rất thích câu <strong>“Hè đến rồi”</strong>
+		cô nói khi được anh tỏ tình lần hai. Câu này ngắn gọn nhưng ý nghĩa, thể hiện mùa hạ của cô mới chính thức bắt đầu khi anh nói lời yêu.</p>
+		<p><strong>Về nam chính Lạc Hạ,</strong> anh thực sự là chàng trai đáng để các cô gái thầm thương trộm nhớ. Không chỉ đẹp trai mà tính cách cũng tuyệt vời, những cử chỉ lịch thiệp, nho nhã của Lạc Hạ chắc chắn sẽ khiến
+		nhiều người phải xiêu lòng. La cũng rất khâm phục nữ chính Hướng Noãn, vì tình yêu mà cô luôn nỗ lực hoàn thiện bản thân, khiến Lạc Hạ sau này mê đắm cô không lối thoát. <strong>Tàng hạ </strong>cũng có dàn nhân vật phụ 
+		đều đáng yêu, tốt bụng, ngoại trừ Chu Giai thời đi học có chút đáng ghét. La chủ yếu ấn tượng với cặp chính nên không để ý nhiều đến nhân vật phụ cho lắm. Văn phong của Ngải Ngư nhẹ nhàng, sâu lắng, không 
+		hời hợt. Cách miêu tả tâm lý yêu thầm của nữ chính rất hợp gu mình. Các nhân vật trong truyện đều là người tốt, không theo kiểu cá biệt, tạo sự khác biệt trong rừng truyện thanh xuân. Bên cạnh đó, tác giả đã
+		xây dựng nhân vật rất tốt: nam chính ấm áp như ánh mặt trời, nữ chính xinh đẹp, ngoan ngoãn, luôn dành cho nam chính một tình yêu chân thành, nam phụ bề ngoài lạnh lùng nhưng bên trong yêu thương, bảo vệ nữ chính
+		như em gái. Các nhân vật đều có tính cách riêng, không trùng lặp, không ai thua kém ai, nhờ ngòi bút tài ba của tác giả.</p>
+		<p><strong>Nội dung truyện</strong> vô cùng hấp dẫn và lôi cuốn. Mỗi tình tiết đều được cài cắm một cách khéo léo, khiến người đọc không khỏi tò mò về những diễn biến tiếp theo. Tác giả đã khéo léo xây dựng một câu
+		chuyện với đủ các cung bậc cảm xúc, từ ngọt ngào, lãng mạn đến hồi hộp, gay cấn. Tàng hạ của Ngải Ngư là một câu chuyện tình yêu đẹp, nhẹ nhàng nhưng đầy ý nghĩa. Với cách viết tinh tế và sâu sắc, tác
+		giả đã mang đến một bức tranh tình yêu thanh xuân đầy màu sắc, khiến người đọc không khỏi rung động và nhớ về những rung động đầu đời. La thấy đây là một tác phẩm đáng đọc cho những ai yêu thích thể loại 
+		thanh xuân vườn trường và muốn tìm kiếm những cảm xúc trong sáng, chân thành của tuổi trẻ. Chắc chắn là tim bạn sẽ mềm xèo rung rinh luôn nha!!!</p>
+		<a href="https://truyenfull.io/tang-ha/">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div id="story-tungco" class="story-content">
+        <img src="tungco.jpg" alt="Từng Có Người Yêu Tôi Như Sinh Mệnh" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Từng Có Người Yêu Tôi Như Sinh Mệnh</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tên Tiếng Anh</td>
+				<td>Once Someone Loved Me as Life Itself</td>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Thư Nghi</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Tiểu thuyết, Tình cảm</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản tại Việt Nam</td>
+				<td>2010</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản tại Việt Nam</td>
+				<td>NXB Văn Học</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>“Từng có người yêu tôi như sinh mệnh” là câu chuyện kể về nỗi đau đó. Một tình yêu thật đẹp nhưng cũng thật buồn. Tương phùng cùng biệt ly chính là cái giá khi chấp nhận bắt đầu cuộc tình bi thương này.</p>
+		<p>Tôn Gia Ngộ là một đại ca có tiếng trong giới xã hội đen ở Ukraine. Anh bắt đầu dấn thân vào cuộc sống nhơ nhớp này từ khi còn trẻ. Sự tàn nhẫn và độc ác của xã hội dần khiến trái tim anh trở nên nguội lạnh. 
+		Đôi tay anh cũng đã nhuộm không biết bao nhiêu máu của kẻ thù. Vì tiền bạc vì quyền lực anh không tiếc đánh đổi bất kể thứ gì. Bởi số phận đã an bài một khi bước đi trên con đường dơ bẩn này anh không thể quay về. 
+		Cho dù biết trước sẽ phải trả giá đắt thì cũng không sao. Vì Gia Ngộ anh, như một con sói hoang đơn độc và cao ngạo giữa bóng tối đầy tội ác. Nhưng một cuộc gặp gỡ tình cờ đã khiến cho vận mệnh rẽ lối. Anh gặp Triệu Mai – 
+		cô gái đơn thuần đang là du học sinh. Nếu vào buổi tiệc đêm ấy, dưới ánh trăng mờ ảo cô không lặng lẽ đàn bài hát mà anh từng yêu thích nhất thì có lẽ mọi chuyện sẽ không bất hạnh như thế. Và kết cục đau thương kia hẳn sẽ không diễn ra.</p>
+		<p>Bản nhạc xưa cũ đấy, nhắc anh nhớ về mối tình đầu đã qua rất lâu, cũng khiến trái tim anh xao động. Một cô gái xa lạ giữa căn phòng xa lạ lại khiến anh cảm thấy quen thuộc và đau đớn. Rồi cứ thế, vận mệnh dẫn lối để
+		họ có thể gặp lại nhau. Tình yêu như sợi tơ, nhẹ nhàng len lỏi vào trái tim cả hai. Và họ bên nhau như vốn dĩ ngay từ đầu họ sinh ra đã để dành cho nhau. Một chàng trai cao lớn mạnh mẽ đầy u tối, một cô gái bé nhỏ đầy
+		dịu dàng. Bên người con gái ấy, Gia Ngộ tháo đi cái vỏ bọc vẫn luôn mang, trở thành một chàng trai hoàn toàn khác. Bởi anh yêu cô, một tình yêu chứa đầy những đau đớn và bi thương. Vì anh biết, tình yêu này chính là một 
+		con dao 2 lưỡi, giết chết anh cũng sẽ giết chết cô… Sự nguy hiểm cùng những dơ bẩn anh đem lại sẽ khiến cô gái đơn thuần như Triệu Mai không còn là chính mình. Vì vậy, anh muốn dùng hết tất cả những yêu thương cùng sức 
+		mạnh của mình để chở che cho cô. Nhưng, đôi cánh của anh không đủ lớn để có thể cho cô một bầu trời an toàn. Bên anh, thế giới của cô chỉ còn màu tăm tối. Anh không thể cũng không nỡ để cô chịu bất cứ thương tổn nào. Nhưng
+		“Mai Mai, em cần phải học cách trưởng thành” để có thể tự bảo vệ bản thân mình. Vì thế giới này kỳ thực rất tàn nhẫn, rất rất tàn nhẫn.</p>
+		<p>Một người như anh, sống chết là chuyện không thể nắm trong tay. Nhưng anh nguyện dù bản thân phải chết cũng nhất định giữ cho Mai Mai còn sống. Bởi cô ấy là người anh yêu, Mai Mai của anh, tất cả của anh. Vì thế, giữa 
+		cơn bão tuyết khủng khiếp, khi cái chết chỉ là sự chờ đợi trong tuyệt vọng, anh vẫn níu lấy hy vọng cuối cùng cho cô. Giữa những lần truy bắt đầy hiểm nguy giữa anh cùng các băng đản xã hội đen hay khi đối đầu cùng cảnh sát 
+		thì anh vẫn luôn giữ an toàn của Mai Mai trên hết. Không chần chờ, không do dự hy sinh đi bản thân mình vì cô. Lúc ấy, anh chỉ cầu mong “Trong những ngày anh cô độc và bi thương, xin em hãy niệm thầm tên anh”. Niệm thầm tên 
+		anh mà thôi chứ không phải là hãy đến bên anh. Lúc ấy, mình đã tự hỏi lòng rằng cần phải yêu bao nhiêu mới có thể biến nguyện cầu thành lời đau thương đến vậy kia chứ.</p>
+		<p>Rồi chuyện gì đến cũng sẽ đến, sự chia xa là không cách nào có thể thay đổi. Gia Ngộ đẩy cô rời xa mình với lời nói “Mai Mai, em hãy quên hết tất cả tiếp tục đuổi theo ước mơ của em. Hãy tiến về phía trước rồi sẽ có người yêu em hơn anh.
+		” Nhưng anh nào hay biết, người cô ấy cần và yêu lại chỉ một mình anh. 10 tháng yêu thương đổi lại là cả một đời lãng quên khi ly biệt. Cái giá của tình yêu mà Gia Ngộ phải trả rất đắt, đó chính là toàn bộ sinh mệnh anh. Nhưng anh chưa bao 
+		giờ hối hận, ngay cả trong những năm tháng cuối đời vì bệnh tật, lại chỉ có thể gọi thầm tên cô trong nỗi nhớ và đau đớn khôn nguôi. Bức ảnh xưa cũ cùng dòng chữ được viết mặt sau luôn được anh giữ gìn thật kỹ “Cô bé của tôi, chúc em một 
+		đời bình an vui vẻ.” Một đời bình an vui vẻ – là như thế nào nếu không có anh, không có Gia Ngộ của cô bé đó, cô bé Mai Mai. Nếu có thể, mình chỉ mong Mai Mai được gặp anh một lần, cho dù là lần cuối ly biệt đầy đau thương cũng được.
+		Để cô ấy có thể ôm anh mà nói rằng xin lỗi, vì đã để anh một mình. Đã để anh đơn độc chiến đấu cùng bệnh tật và mất đi trong lặng im mà cô không hề hay biết. Chuyện đó, cỡ nào là bi ai kia chứ.</p>
+		<p>“Từng có người yêu tôi như sinh mệnh” cứ thế mà kết thúc, lấy đi không biết bao nhiêu nước mắt của người đọc. Thương Gia Ngộ, thương Mai Mai và thương cho tình yêu của họ. Dù cố gắng đổi thay thế nào cũng không thể trốn 
+		thoát khỏi sự an bài của số phận. Đoạn đường hạnh phúc đó, chỉ có thể cùng nắm tay đi chung một đoạn mà thôi. Rồi cuối cùng cũng phải chia xa, cho dù nước mắt đã rơi hay giãy dụa níu kéo. Đau thương vẫn hoàn đau thương. Biệt
+		ly vẫn hoàn biệt ly. Chỉ mong Mai Mai như lời Gia Ngộ đã luôn nguyện cầu có thể “một đời bình an vui vẻ”</p>
+		<a href="https://www.fahasa.com/tung-co-nguoi-yeu-toi-nhu-sinh-menh-tai-ban-2024.html?fhs_campaign=SEARCH">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+	<div id="story-dacnhantam" class="story-content">
+        <img src="dacnhantam.jpg" alt="Đắc Nhân Tâm" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Đắc Nhân Tâm</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Dale Carnegie</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Mỹ</td>
+			</tr>
+			<tr>
+				<td>Ngôn ngữ</td>
+				<td>Tiếng Anh</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Self-help</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Simon and Schuster (1936)</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>1936</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>291</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Cuốn sách được tác giả <strong>Dale Carnegie</strong> ra mắt lần đầu vào năm <strong>1937</strong>, tuy nhiên không vì thế mà nội dung của cuốn sách trở nên lỗi thời, cho đến tận bây giờ, những bài học và triết lý trong sách vẫn còn được áp dụng rất nhiều trong cuộc 
+		sống ngày nay, đơn giản vì nó được tác giả đúc kết qua những nghiên cứu và khám phá về ngành tâm lý học của con người. Dù cho cuốn sách Đắc Nhân Tâm này đã được tái bản rất nhiều lần, nhưng cho đến nay qua bao nhiêu thế hệ người đọc, nó
+		vẫn luôn là cuốn sách thu hút được lượng người đọc đông đảo bởi giá trị nội dung vẫn luôn còn mãi với thời gian. Nhắc thêm <em>một chút về tác giả Dale Carnegie</em>, ông là một chuyên gia tâm lý, một nhà ngoại giao, chính trị và là giảng viên người
+		Mỹ rất nổi tiếng của thế kỷ trước. Ông thường xuyên chia sẻ các bí quyết, kinh nghiệm thành công của mình đến tất cả mọi người cho bằng việc cho ra mắt các cuốn sách với chủ đề dạy làm người và kĩ năng sống được nhiều người đón nhận.</p>
+		<p><strong>Đối với cuốn sách Đắc Nhân Tâm này được chia làm 4 phần.</strong> Mỗi phần trong cuốn sách sẽ tương ứng với một bài học và các bí quyết khác nhau.</p>
+		<p><strong>Phần 1</strong> nói về nghệ thuật ứng xử căn bản của mỗi con người, bao gồm những bí quyết, kinh nghiệm và cả các bài học về việc đối nhân xử thế trong các mối quan hệ xã hội mà bạn nên lưu tâm đến.</p>
+		<p><strong>Phần 2</strong> của cuốn sách sẽ hướng dẫn cho bạn những bí quyết hữu ích trong việc tạo ra sự thiện cảm đối với người đối diện, nhờ đó giúp cho những người xung quanh luôn yêu quý và trân trọng tình cảm của bạn hơn.</p>
+		<p><strong>Phần 3</strong> được xem là một phần rất quan trọng và sẽ đem lại cho bạn rất nhiều bài học bổ ích nhất liên quan đến lĩnh vực tâm lý học, đó là chỉ cho bạn các phương pháp và bí quyết giúp bạn và những người khác có chung về 
+		suy nghĩ và quan điểm trong cuộc sống.</p>
+		<p><strong>Phần 4</strong> phần cuối cùng của cuốn sách Đắc nhân tâm, tác giả sẽ bày cho bạn những cách để chuyển hóa cảm xúc và suy nghĩ của một người khác từ tiêu cực chuyển thành tích cực mà không để xảy ra sự hận thù hay oán trách, dù
+		cho đây không phải là một việc làm đơn giản chút nào.</p>
+		<p>Ngoài ra, đan xen trong cuốn sách Đắc nhân tâm này, tác giả còn đưa ra rất nhiều những bài học về ứng xử rất hay và thiết thực. Mức độ của những bài học, bí quyết được tác giả nâng lên từ dễ dàng cho đến khó khăn, tuy nhiên không phải là
+		không thực hiện được. Quan trọng là nằm ở sự quyết tâm, cố gắng và kiên trì của bạn trong việc vận dụng và học hỏi những bài học này để có thể đạt được những thành công nhất định trong việc thu phục lòng người. Chắc chắn một điều rằng, nếu 
+		bạn dành nhiều thời gian và trí tuệ để làm theo từng bước của những bài học này, thì trong tương lai bạn sẽ dễ dàng đạt được nhiều thành công trong giao tiếp, trong cuộc sống hàng ngày và quan trọng hơn là trong sự nghiệp công việc của bạn.
+		Các bài học được hướng dẫn trong cuốn sách đều rất thực tế và gần gũi với cuộc sống đời thường của mỗi chúng ta, nên sẽ không gây ra bất kỳ những khó khăn, lạ lẫm nào cho những người lần đầu biết đến cuốn sách Đắc nhân tâm này.</p>
+		<p><strong>Cuốn sách Đắc Nhân Tâm</strong> ngoài việc dạy cho chúng ta những cách kỹ năng giao tiếp và bí quyết để thành công, thì nó còn giúp cho chúng ta cách đề phòng và giải quyết những khúc mắc, hiểu lầm từ nhỏ nhặt cho đến nghiêm trong 
+		trong vấn đề giao tiếp và ứng xử một cách chuyên nghiệp và tinh tế nhất trong bất kỳ tình huống và trường hợp nào. Chính vì những bài học này được áp dụng trong hầu hết các trường hợp nên tác giả đã phải nhấn mạnh rất nhiều lần về điều này, 
+		đó là nên giải quyết và xử lý mọi tình huống bằng chính xuất sự thiện chí và lòng chân thành từ bên trong mỗi chúng ta. Lời nhắc nhở này được tác giả nói đến từ hàng chục năm về trước nhưng cho đến nay nó vẫn rất chính xác và hợp lý.  
+		Quan trọng hơn cả, giá trị cốt lõi mà Dale Carnegie muốn gửi gắm tới tất cả mọi người vẫn luôn được truyền dạy qua các thế hệ trong việc thu phục được lòng người. Tác giả đã rất am hiểu và tinh tế trong việc kết hợp nhiều nền tảng kiến 
+		thức nhau từ tâm lý học cho đến cuộc sống thực tế và khả năng quan sát nhạy bén, để đúc kết ra những bài học xương máu có giá trị lâu dài cho đến tận bây giờ. </p>
+		<p><strong>Với Đắc Nhân Tâm,</strong> tác giả chú trọng nhiều và vấn đề giao tiếp và xem nó như là một nghệ thuật, mà trong đó người giao tiếp chính là một người nghệ sĩ đang biểu diễn tác phẩm nghệ thuật của mình. Tuy cuốn sách này rất được lòng của
+		người đọc nhưng vẫn có nhiều người lên tiếng chỉ trích, cho rằng cuốn sách này đã lạm dụng sự tính toán, ý đồ trong từng hành vi giao tiếp. Tất nhiên là tùy vào suy nghĩ của mỗi người, nếu bạn không tin tưởng lắm vào những bài học trong
+		cuốn sách Đắc nhân tâm này, thì đây vẫn là cuốn sách bạn nên đọc thử qua vì chúng sẽ giúp bạn hiểu rõ hơn về tâm lý học của con người. Trong quan hệ giao tiếp hàng ngày, việc bạn hiểu rõ chính mình cũng như đối tượng giao tiếp với mình sẽ 
+		giúp ích rất nhiều trong mọi mối quan hệ. Trong cuốn sách này, tác giả cũng đã đề cập đến một nguyên tắc rất quan trọng trong giao tiếp đó là <em>“Không chỉ trích, không lên án, không than phiền”.</em> Nguyên tắc này được Dale minh chứng cụ thể thông
+		qua các câu chuyện về các doanh nhân, vĩ nhân rất nổi tiếng, và tất nhiên là họ đã rất thành công, được tác giả diễn giả và phân tích rất dễ hiểu và gần gũi đối với người đọc.</p>
+		<a href="https://www.fahasa.com/dac-nhan-tam-tai-ban-2021.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+	
+	<div id="story-ditimlesong" class="story-content">
+        <img src="ditimlesong.jpg" alt="Đi Tìm Lẽ Sống" class="story-image">
+        <div class="story-details">
+		<div class="story-title">Đi Tìm Lẽ Sống</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Viktor Frankl (1905 - 1997)</td>
+			</tr>
+			<tr>
+				<td>Xuất bản lần đầu tiên</td>
+				<td>1946 bằng tiếng Đức, và năm 1959 bằng tiếng Anh</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>NXB Tổng Hợp TPHCM</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản</td>
+				<td>2019</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p><strong>Cuộc sống tại trại tập trung và hành trình vượt qua nó</strong></p>
+		<p>Trong phần đầu của <em>“Đi tìm lẽ sống”</em>. Tác giả sẽ mô tả về cuộc sống của mình trong trại tập trung. Dựa trên trải nghiệm của bản thân, cùng với ngôn từ sâu sắc. Người viết đã khắc họa sự tàn nhẫn của một trại tập trung trong thế chiến. Nơi 
+		mà chính Fito và các đọc giả ngày nay sẽ chẳng thể nào cảm nhận được. Đó là nơi mà mạng người còn <em>“nhẹ”</em> hơn cả cỏ rác. Trên hành trình của ấy, tác giả đã cố gắng níu kéo sự sống của mình. Phần này được viết theo phong cách tự chuyện. Do đó 
+		người đọc sẽ dễ dàng cảm nhận được <em>“mặt tối”</em> của ngôn từ trong đó. Hơn hết Fito rất thích phần này của quyển sách <em>“Đi tìm lẽ sống”</em>. Vì nó <em>“share”</em> với bản thân mình một góc nhìn chân thật về cuộc sống của thời đại này. Phải nói và vô cùng cuốn
+		và vô cùng tàn nhẫn. Nếu thật sự như thế, Fito nghĩ rằng mình sẽ không đủ dũng cảm như tác giả để vượt qua.</p>
+		<p><strong>Phần tiếp theo <em>“Đi tìm lẽ sống”</em> là chia sẻ về <em>“liệu pháp ý nghĩa”</em></strong></p>
+		<p>Đây là một liệu pháp mà tác giả đã đúc kết từ chính cuộc sống của mình. Với mục đích giúp cho những bệnh nhân bị chấn thương tâm lý trở về với cuộc sống bình thường. Nó đã được lấy chính cuộc sống <em>“địa ngục”</em> trong trại tập trung. Nhưng khi
+		các nạn nhân trở về cuộc sống thực tại họ lại không thể thích nghi nổi. Bên cạnh đó là vô vàng những vết dao cắt trong tâm trí của các nạn nhân khi họ có được tự do. Một ví dụ điển hình mà tác giả có nhắc đến trong sách <em>“Đi tìm lẽ sống”</em>. Đó là 
+		người bạn thân nhất của tác giả, là một người giàu lòng nhân ái trong trại. Nhưng khi trở về với cuộc sống bình thường, ông ấy đã có vô số cái nhìn lệch lạc và không phù hợp. Lý do là bởi vì nổi đau quá lớn và không thể phá bỏ. Như việc ông thực
+		hiện những hành vi dẫm đạp những cây lúa, và tác giả đã nói với ông đừng làm thế. Thì người bạn thân này đã nói “Vợ và con tôi đã chết ngạt trong trại tập trung, mà ông trách móc tôi bởi những cái đạp vào vật vô chi ư?”. Kéo theo đó là những áp 
+		lực vô hình, và mất đi lẽ sống của chính mình.</p>
+		<p><strong>Cảm nhận của Fito về quyển sách “self-help” này</strong></p>
+		<p><em>” Đi tìm lẽ sống ”</em> là một quyển sách self help hàng đầu. Dành cho những ai đang muốn tìm kiếm một lẽ sống cho cuộc sống bản thân. Lẽ sống đó giúp chúng ta có thể vượt qua mọi rào cản, khó khăn. Đặc biệt nó cũng nhắc nhở chúng ta thứ gì quan 
+		trọng trong cuộc sống này. Từ đó hãy trân trọng cuộc sống từng giây phút một trong cuộc sống hiện tại. Vì mọi thứ sẽ thay đổi rất nhanh chóng, và tương lai là vô định. Song song với đó, hãy đọc <em><strong>” Đi tìm lẽ sống ”</strong></em> khi bạn thiếu đi động lực để làm gì
+		đó. Vì nó sẽ nhắc nhở cho bạn rằng cuộc đời này có rất nhiều hoàn cảnh tệ hơn chúng ta rất nhiều. Hãy vững tin vào tương lai, mọi việc đều sẽ ổn thôi. Chúng ta hãy cố gắng và trân trọng những giây phút hiện tại cũng như đừng từ bỏ những thứ đang theo đuổi.</p>
+		<a href="https://www.fahasa.com/di-tim-le-song-tai-ban-2022.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+	
+	<div id="story-toigioibancungthe" class="story-content">
+        <img src="toitaigioibancungthe.jpg" alt="Tôi Tài Giỏi Bạn Cũng Thế" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Tôi Tài Giỏi Bạn Cũng Thế</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Nhan đề tiếng Anh</td>
+				<td>I Am Gifted, So Are You!</td>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Adam Khoo</td>
+			</tr>
+			<tr>
+				<td>Mục lục</td>
+				<td>4 phần, 18 chương</td>
+			</tr>
+			<tr>
+				<td>Người dịch</td>
+				<td>Trần Đăng Khoa, Uông Xuân Vy</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>NXB Phụ Nữ</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản</td>
+				<td>2019</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Phương pháp học tập hiệu quả: Adam Khoo giới thiệu các kỹ thuật học tập tiên tiến như Mind Mapping (sơ đồ tư duy), kỹ thuật ghi nhớ thông qua hình ảnh, 
+		và phương pháp đọc nhanh để tối ưu hoá việc học. Những phương pháp này không chỉ áp dụng cho học sinh, sinh viên mà còn hữu ích cho bất kỳ ai muốn học hỏi kiến thức mới một cách nhanh chóng.</p>
+		<p>Tư duy tích cực: Sách khuyến khích người đọc thay đổi cách nhìn nhận về bản thân và tin tưởng vào khả năng của mình. Adam Khoo cho rằng sự tự tin và thái độ tích cực là chìa khóa dẫn đến thành công.</p>
+		<p>Quản lý thời gian và mục tiêu: Một phần quan trọng của sách là việc dạy người đọc cách quản lý thời gian hiệu quả, đặc biệt là trong bối cảnh bận rộn của cuộc sống hiện đại. Adam hướng dẫn cách 
+		đặt ra các mục tiêu thực tế và cách theo đuổi chúng một cách có hệ thống.</p>
+		<p>Nội dung cuốn sách nhấn mạnh rằng bất kỳ ai cũng có thể thay đổi bản thân và trở nên thành công, miễn là họ có kỷ luật và áp dụng đúng các phương pháp đã được chứng minh trong sách. 
+		Đây là nội dung cốt lõi của cuốn sách.</p>
+		<a href="https://vnibooks.com/product/toi-tai-gioi-ban-cung-the-tai-ban/">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+	
+	<div id="story-tuduynhanhhaycham" class="story-content">
+        <img src="tuduynhanhhaycham.jpg" alt="Tư Duy Nhanh Hay Chậm" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Tư Duy Nhanh Hay Chậm</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Dale Carnegie</td>
+			</tr>
+			<tr>
+				<td>Quốc gia</td>
+				<td>Mỹ</td>
+			</tr>
+			<tr>
+				<td>Ngôn ngữ</td>
+				<td>Tiếng Anh</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Self-help</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Simon and Schuster (1936)</td>
+			</tr>
+			<tr>
+				<td>Ngày phát hành</td>
+				<td>1936</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>291</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Tư duy nhanh và chậm là một cuốn cẩm nang hướng dẫn tư duy đáng nể trọng của đại sư Daniel Kahneman, một nhà kinh tế học và tâm lý học danh tiếng người Do Thái.  Những suy tư của ông về tâm lý học trong việc phán xét (judgment) và ra quyết định (decision-making) đã thách thức rất nhiều giả định về khả năng duy lý (rationality – dùng lý lẽ để phân tích và bóc tách vấn đề) của con người.</p>
+		<p>Cuốn sách Tư duy Nhanh và Chậm là một tổng hợp các thành quả nghiên cứu của Amos và Daniel qua nhiều thập kỉ. Ngôn ngữ chân phương của cuốn sách đã giúp công chúng dễ dàng tiếp cận những thuật ngữ tâm lý học phức tạp và bước vào những thí nghiệm mô phỏng tư duy rất thú vị. Cuốn sách đã thực sự khai sáng suy tư, thay đổi cách tiếp cận trong nhiều vấn đề đồng thời là kim chỉ nam cho nhiều quyết định quan trọng trong cuộc sống của mình. Một cuốn sách mà trong suốt năm năm qua kể từ khi mình tìm thấy nó trên một giá sách ở Hà Nội đã theo chân mình trên mọi nẻo đường (trong Kindle), mỗi lần đọc lại là mỗi lần được bước vào suy tư của những con người vĩ đại mà chỉ cần hiểu được hơn phần nào đó trong trí óc họ là mình lại mình lại cảm thấy rất sung sướng. </p>
+		<p>Daniel Kahneman là người khiến mình nể trọng bởi bộ óc kiệt suất cùng câu chuyện cuộc đời đầy sóng gió thú vị của ông, một người truyền cảm hứng để mình theo đuổi việc học ngôn ngữ Hebrew và văn hóa Do Thái.</p>
+		<p>Trung tâm của nghiên cứu trên nằm ở sự phân chia của hai hệ thống tư duy: Hệ thống một (1) – nhanh, cảm xúc, bản năng và hệ thống hai (2) – chậm, có sự cân nhắc, mang tính logic hơn. Các bạn có thể hình dung qua một ví dụ đơn giản sau – được lấy trong thí nghiệm RAT về khả năng liên tưởng: Khi bạn nghe ba từ sau cất lên: “sâu thẳm, nước xanh, muối” thì gần như đầu óc chúng ta sẽ liên tưởng ngay lập tức đến một hình ảnh nào đó – phần lớn có thể nghĩ đến “biển cả”. Đây chính là lúc mà hệ thống 1 lên tiếng. Còn khi chúng ta suy tư những phép tính như 17×52 thì dường như chúng ta không thể đưa ra đáp án ngay mà cần thời gian tính toán – đây là lúc mà hệ thống 2 lên tiếng.</p>
+		<p>Cuốn sách phân tích và đưa ra nhiều thí nghiệm mô phỏng tư duy xoay xung quanh hai hệ thống trên nhằm chỉ ra những thành kiến cố hữu (biases & heuristics) của con người, cách thức họ ra quyết định đồng thời liên kết đến nhiều nghiên cứu khác về mức độ e ngại rủi ro (loss aversion), về tương quan kinh nghiệm – trí nhớ (experiencing self vs remembering self), lý thuyết viễn cảnh (prospect theory), hiệu ứng mỏ neo (anchoring effect) hay thứ mình thấy hay ho nhất chính là WYSIATI (What you see is all there is) – Những gì bạn thấy là những gì bạn biết – là khái niệm ám chỉ các phán xét và ấn tượng mà chúng ta có được dựa trên thông tin mà ta hiện có (thường là thiếu sót) – kiểu như khi chúng ta nói chuyện với một người mới thì ấn tượng ban đầu ngay lập tức hình thành qua ngoại hình và vài lời nói, lúc đó đầu óc chúng ta nhanh chóng hình thành nhiều lát cắt về họ đồng thời dựng lên một câu chuyện của riêng họ mà bỏ qua câu hỏi “liệu có thông tin nào còn thiếu”. Khái niệm này giúp ông đả phá quan niệm của kinh tế học truyền thống về tính duy lý của con người – trong đó mọi quyết định và phán xét được xem xét một cách cẩn thận – nhưng thực tế việc đưa ra quyết định của con người thường đi theo nhiều lối tắt (short-comings) mà không dựa trên nền tảng duy lý: một kiểu phản ứng thiếu thận trọng (knee-jerk reactions) chứ không dựa trên suy nghĩ thấu suốt (deliberative thought).</p>
+		<p>Các bạn nên tìm mua cuốn sách này và xem thật nhiều bài chia sẻ của Daniel Kahneman trên Youtube (có thể ở Ted) – những kiến thức này không hề mang tính hàn lâm mà thực sự gắn chặt với cuộc sống hàng ngày của chúng ta. Chúng sẽ đặt một đồng hồ cảnh báo trong trí não để nhắc chúng ta nhớ về những sai sót cố hữu trong suy tư đồng thời giúp ta đào sâu hơn bản chất của thông tin mà chúng ta đang xử lý.</p>
+		<a href="https://vnibooks.com/product/tu-duy-nhanh-va-cham-tai-ban-2019/">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+	
+	<div id="story-tuanlamviec4gio" class="story-content">
+        <img src="tuanlamviec4gio.jpg" alt="Tuần Làm Việc 4 Giờ" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Tuần Làm Việc 4 Giờ</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tên Tiếng Anh</td>
+				<td>The 4-Hour Workweek</td>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Timothy Ferriss</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Sách Kinh Tế, Phát Triển Bản Thân</td>
+			</tr>
+			<tr>
+				<td>Năm xuất bản tại Việt Nam</td>
+				<td>2015</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản tại Việt Nam</td>
+				<td>NXB Lao Động</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p>Timothy Ferress – tác giả của cuốn sách Tuần làm việc 4 giờ đã chỉ cho bạn thấy những suy nghĩ và mục tiêu sống của bạn đang có vấn đề. Bạn cần thay đổi để vừa có thể tận hưởng được cuộc sống vừa hoàn thành tốt công việc của mình.</p>
+		<p>Dù ước mơ của bạn là gì: thoát khỏi cuộc đua tranh khốc liệt, du lịch tận hưởng cuộc sống, đi du ngoạn dài ngày, thiết lập kỷ lục thế giới hay chỉ đơn giản là thay đổi công việc, cuốn sách này sẽ cung cấp những công cụ cần thiết để biến ước mơ đó thành hiện thực ngay lúc này, ngay tại đây thay vì đợi đến khi nghỉ hưu. Luôn có cách nhận được phần thưởng cho sự nỗ lực vượt qua những khó khăn của cuộc sống thay vì phải đợi đến tận cuối đời.</p>
+		<p>Trong cuốn sách này, Tim sẽ chỉ cho chúng ta thấy Làm thế nào để có được lối sống hoàn toàn tự do của một triệu phú mà không cần phải có 1 triệu đô la? Chỉ có một câu trả lời đơn giản, anh đã biết tách biệt thu nhập với thời gian và tạo ra lối sống lý tưởng cho mình, đi du lịch vòng quanh thế giới và tận hưởng những điều thú vị nhất trên hành tinh này. Và Tim còn chỉ cho bạn anh đã làm như thế nào để từ làm việc 14 giờ/ngày và kiếm 40.000 đô-la/ năm thành làm việc 4 giờ/ tuần và kiếm 40.000 đô la/ tháng?</p>
+		<p><em>Điều gì làm cho cuốn sách này trở nên khác biệt?</em></p>
+		<p>Cuốn sách không đề cập đến tình trạng phổ biến hiện nay, đa số mọi người đang thiếu thời gian, lo lắng, sợ hãi hay trường hợp tồi tệ nhất - sống tốt và thoải mái với một công việc không giúp bạn khai thác hết được tiềm năng của mình. Nói đúng hơn, bạn đang chấp nhận cuộc sống mà không bằng lòng với nó.</p>
+		<p>Cuốn sách này không khuyên bạn nên tiết kiệm, không khuyên bạn nên từ bỏ những sở thích tận hưởng cuộc sống. Cuốn sách không bắt bạn phải lựa chọn giữa sự tận hưởng ngày hôm nay và tiền bạc của ngày mai. Ngay từ hôm nay, bạn có thể có cả hai điều đó - niềm vui và lợi nhuận.</p>
+		<p>Cuốn sách này không giúp bạn kiếm một công việc mà bạn hằng mơ ước, cuốn sách chỉ giúp bạn giải phóng thời gian và kiếm thêm thu nhập.</p>
+		<p><strong>Cách thức để thực hiện những điều trên và gia nhập nhóm New Rick</strong></p>
+		<p><strong>DEAL</strong> trong cụm từ <strong>Deal making</strong> <em>(thoả thuận)</em> cũng chính là từ viết tắt chỉ quá trình trở thành thành viên của <strong>New Rich</strong>.</p>
+		<p><strong>D</strong> - <em>Difinition (Định nghĩa)</em>: Đảo ngược những quy tắc và luật lệ để đưa ra những khái niệm và quan niệm mới: sự giàu có tương đối và sự căng thẳng tích cực. New Rich là ai và họ hoạt động như thế nào? Đồng thời chúng ta cũng được làm quen với việc Thiết Kế Lối Sống kiểu New Rich.</p>
+		<p><strong>E</strong> - <em>Elimination (Sự loại trừ)</em>: Loại bỏ những quan niệm lỗi thời về quản lý thời gian – cách Tim vận dụng nguyên lý 80/20 của nhà kinh tế học người Ý 80/20.</p>
+		<p><strong>A</strong> - <em>Automation (Sự tự động)</em>: Cách để thuê ngoài cho cuộc sống của bạn. Từ những thói quen bình thường đến thói quen của những NR cực kỳ thành công, tất thảy đều ở đây. Đây là nhân tố thứ hai giúp bạn thiết kế lối sống thịnh vượng – Thu nhập.</p>
+		<p><strong>L</strong> - <em>Liberation (Sự tự do)</em>: Giúp bạn có thể hoàn thành công việc mà không thường xuyên phải có mặt ở văn phòng. Bạn có thể giải quyết công việc khi đang đi du lịch hay nghỉ mát cùng gia đình bạn bè. Đây là yếu tố thứ ba để thiết kế lối sống thịnh vượng - sự linh động. Tim cũng chỉ cho bạn “chiến thuật” để lấy lòng ông chủ và thực hiện được mục tiêu làm việc từ xa của mình.</p>
+		<p>Trong cuốn sách này, Tim cũng chỉ ra 13 lỗi mà các New Rich hay gặp. Đồng thời, những thông tin cơ bản giúp bạn tự Thiết Kế Lối Sống cho mình được đăng đăng tải trên web fourhourworkweek.com. Hy vọng cuốn sách sẽ là món quà quý giá đối với những ai đọc nó!</p>
+		<p><strong>Đôi điều về tác giả:</strong></p>
+		<p>Timothy Ferriss, được đề cử là một trong những “ Doanh nhân sáng tạo nhất năm 2007 “là một nhà đầu tư tuyệt vời và tác giả của quyển sách đạt # 1 New York Times, Wall Street Journal, và Bestseller BusinessWeek. Anh đã xuất hiện trên hơn 100 phương tiện thông tin đại chúng, bao gồm The New York Times, The Economist, Time, Forbes, Fortune, CNN, và CBS.</p>
+		<a href="https://vnibooks.com/product/tuan-lam-viec-4-gio-tai-ban/">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+	
+	<div id="story-tamnhinthaydoiquocgia" class="story-content">
+        <img src="tamnhinthaydoiquocgia.jpg" alt="Tầm Nhìn Thay Đổi Quốc Gia" class="story-image">
+		<div class="story-details">
+        <div class="story-title">Tầm Nhìn Thay Đổi Quốc Gia</div>
+		<table border="1">
+			<tr>
+				<th colspan="2">Thông tin sách</th>
+			</tr>
+			<tr>
+				<td>Tác giả</td>
+				<td>Mohammed bin Rashid Al Maktoum</td>
+			</tr>
+			<tr>
+				<td>Biên dịch</td>
+				<td>Viện Kinh Tế Việt Nam</td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td>Kinh tế</td>
+			</tr>
+			<tr>
+				<td>Nhà xuất bản</td>
+				<td>Thế Giới</td>
+			</tr>
+			<tr>
+				<td>Số trang</td>
+				<td>277</td>
+			</tr>
+		</table>
+		<h3>Mô tả sản phẩm</h3>
+        <p><strong>DUBAI – SỰ THẦN KỲ ĐẾN TỪ TẦM NHÌN CỦA NHỮNG NHÀ LÃNH ĐẠO</strong></p>
+		<p>Nhắc đến Dubai, nhiều người Việt Nam thường nghĩ đến một đất nước Hồi giáo có diện tích nhỏ bé thuộc thế giới Ả Rập và toàn sa mạc, người dân mặc những bộ quần áo màu trắng truyền thống của nam giới, mạng che mặt và quần áo đen phủ kín toàn thân của phụ nữ.</p>
+		<p>Dubai ngày nay vẫn vậy, nhưng Tiểu quốc này hiện được xem là một thành phố năng động và hiện đại bậc nhất thế giới. Chỉ trong 20 năm, với dân số khoảng 2 triệu người trên một diện tích 4.000 km2, Dubai đã phát triển thần kỳ, nổi lên như một thành phố toàn cầu và là một trung tâm kinh tế của thế giới với các trung tâm tài chính, công nghệ thông tin, du lịch, cảng biển, bất động sản, các công trình đồ sộ bậc nhất thế giới: The Palm – quần đảo nhân tạo lớn và đẹp nhất thế giới; Burj Khalifa – tòa nhà cao nhất thế giới; Jebel Ali – cảng nước sâu nhân tạo lớn nhất thế giới,…</p>
+		<p><strong>Điều gì đã tạo nên sự phát triển thần kỳ đó, từ một Tiểu quốc mà ở thời điểm sau Thế chiến thứ nhất đã từng có nhiều người dân phải chết đói trong một nền kinh tế sụp đổ, kiệt quệ?</strong></p>
+		<p>Nhiều người nghĩ ngay đến dầu mỏ. Đúng. Và không đúng. Khi dầu mỏ được phát hiện vào năm 1971 ở Dubai, Tiểu quốc này bắt đầu phát triển mạnh. Nhưng hiện nay, thu nhập từ dầu mỏ và khí đốt chỉ chiếm dưới 6% tổng thu nhập của Dubai. Đóng góp nhiều cho nền kinh tế của Dubai chủ yếu đến từ các ngành hàng không, bất động sản và xây dựng, thương mại, trung chuyển hàng hóa và dịch vụ tài chính. Để có được kết quả này, các nhà lãnh đạo Dubai từ thập niên 1970 đã có tầm nhìn chiến lược, định hướng để Dubai trở thành trung tâm thương mại, tài chính, dịch vụ và du lịch của khu vực và thế giới. Các chính sách của chính phủ nhằm đa dạng hóa một nền kinh tế dựa vào dầu khí và thương mại trở thành một nền kinh tế phát triển dựa trên dịch vụ và du lịch. Và điều đó ngày nay đã đem lại vị thế vượt trội của Dubai trong thế giới Ả Rập và trên toàn thế giới.</p>
+		<p>Quốc vương Mohammed bin Rashid Al Maktoum của Tiểu quốc Dubai, Toàn quyền Dubai, và là Phó Tổng thống kiêm Thủ tướng của Các Tiểu vương quốc Ả Rập Thống nhất (UAE), đã tóm tắt và chỉ rõ con đường tiến đến sự vượt trội này của Dubai trong quyển sách My Vision – Challenges in the Race for Excellence, được First News xuất bản với tựa tiếng Việt là TẦM NHÌN THAY ĐỔI QUỐC GIA – Thách thức trong cuộc đua vươn tới sự vượt trội. Đây là quyển sách có tầm ảnh hưởng mạnh mẽ, đầy tính khơi gợi và khích lệ đối với những quốc gia đang trên đường phát triển như Việt Nam. Tôi cho rằng các vấn đề Dubai gặp phải trên bước đường phát triển thật sự là các tham chiếu hữu ích đối với nỗ lực của chúng ta trong sự nghiệp đưa đất nước tiến tới phồn vinh và thịnh vượng.</p>
+		<a href="https://www.fahasa.com/my-vision-tam-nhin-thay-doi-quoc-gia-tb-2022.html">
+		MUA NGAY GIẢM 10%</a>
+		</div>
+	</div>
+
+    <div class="comment-section" 
+    style="padding-top: 50px; padding-right: 100; padding-left: 100px; padding-bottom: 50px; width: 1069px; ">
+        <h2>Bình Luận</h2>
+    
+        <!-- Form Nhập Bình Luận -->
+        <div class="comment-form" >
+            <div class="form-group">
+                <label for="name">Tên của bạn</label>
+                <input type="text" id="name" placeholder="Nhập tên của bạn" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Bình luận</label>
+                <textarea id="comment" rows="5" placeholder="Nhập bình luận của bạn" required></textarea>
+            </div>
+            <button class="submit-btn" onclick="addComment()">Gửi Bình Luận</button>
+        </div>
+    
+        <!-- Danh Sách Bình Luận -->
+        <div class="comment-list" id="comment-list">
+            <!-- Các bình luận sẽ được hiển thị tại đây -->
+        </div>
+    </div>
+
+	<video width="500" height="500" autoplay loop >
+		<source src="quangcao.mp4" type="video/mp4">
+	</video>
+
+
+	
+	<script>
+    // Hàm này sẽ được gọi khi trang web được tải
+    window.onload = function() {
+        // Lấy phần hash từ URL (bỏ dấu # phía trước)
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            // Gọi hàm showStory với hash đó nếu tồn tại
+            showStory(hash);
+        }
+    }
+	</script>
+    
+	
+	<script>
+    function scrollToTop(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Thêm hiệu ứng cuộn mượt mà
+        });
+    }
+
+    // Lấy phần tử mũi tên đi lên
+    const backToTopButton = document.getElementById("backToTop");
+
+    // Kiểm tra khi cuộn trang
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = "block"; // Hiện mũi tên
+        } else {
+            backToTopButton.style.display = "none"; // Ẩn mũi tên
+        }
+    };
+
+</script>
+
+
+
+<script>
+    function addComment() {
+        // Lấy giá trị từ input
+        const name = document.getElementById("name").value;
+        const comment = document.getElementById("comment").value;
+
+        // Kiểm tra nếu các trường không được để trống
+        if (name.trim() === "" || comment.trim() === "") {
+            alert("Vui lòng điền đầy đủ thông tin!");
+            return;
+        }
+
+        // Tạo phần tử mới cho bình luận
+        const commentList = document.getElementById("comment-list");
+        const commentItem = document.createElement("div");
+        commentItem.className = "comment-item";
+
+        commentItem.innerHTML = `
+            <div class="comment-author">${name}</div>
+            <div class="comment-content">${comment}</div>
+        `;
+
+        // Thêm bình luận vào danh sách
+        commentList.appendChild(commentItem);
+
+        // Xóa nội dung trong form
+        document.getElementById("name").value = "";
+        document.getElementById("comment").value = "";
+    }
+</script>
+
+</body>
+</html>
